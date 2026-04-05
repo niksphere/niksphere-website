@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Niksphere - The holistic Enterprise Application Platform for modern business applications.">
+  <title>Niksphere</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  
+  <header class="hero">
+    <div class="container text-center">
+      <h1 class="logo">Niksphere</h1>
+      <p class="tagline">The holistic Enterprise Application Platform for modern business applications.</p>
+      <a href="#cli-installation" class="btn btn-primary mt-4">Install Niksphere CLI</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="section-wrapper">
+      <h2>What does Niksphere offer?</h2>
+      <p>
+        Niksphere is a comprehensive enterprise platform for running diverse applications (Apps). 
+        Whether it's a small CRM, an extensive ERP system, or a document management system (DMS) — everything fits seamlessly.
+      </p>
+      
+      <div class="features-grid">
+        <div class="feature-item">
+          <h3>For Enterprises</h3>
+          <p>Run public apps via the Marketplace or deploy exclusive, customized apps directly on-premises or in the cloud.</p>
+        </div>
+        <div class="feature-item">
+          <h3>For End-Users</h3>
+          <p>A modern, customizable UI (move, show/hide fields). Different apps merge into a single, intuitive experience.</p>
+        </div>
+        <div class="feature-item">
+          <h3>For Developers</h3>
+          <p>Declarative approach via YAML for databases & UI, combined with events for business logic. First-class DX with VS Code integration and CLI.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="cli-installation" class="section-wrapper pt-4">
+      <h2>CLI Installation</h2>
+      <p>Manage your Niksphere environments efficiently with our command-line tools. No admin rights are required.</p>
+      
+      <div class="code-block">
+        <div class="code-header">
+          <span>Windows (PowerShell)</span>
+          <button class="btn-copy" onclick="copyCode(this)" title="Copy to clipboard">Copy</button>
+        </div>
+        <pre><code><span class="sh-cmd">Invoke-RestMethod</span> <span class="sh-str">https://raw.githubusercontent.com/niksphere/niksphere-install/main/install.ps1</span> <span class="sh-op">|</span> <span class="sh-cmd">Invoke-Expression</span></code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span>macOS & Linux (Bash)</span>
+          <button class="btn-copy" onclick="copyCode(this)" title="Copy to clipboard">Copy</button>
+        </div>
+        <pre><code><span class="sh-cmd">curl</span> <span class="sh-arg">-fsSL</span> <span class="sh-str">https://raw.githubusercontent.com/niksphere/niksphere-install/main/install.sh</span> <span class="sh-op">|</span> <span class="sh-cmd">bash</span></code></pre>
+      </div>
+      
+      <div class="info-note">
+        <strong>💡 Post-Installation:</strong> Please restart your terminal and verify the installation by typing <code>niksphere --version</code>.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Niksphere Team. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyCode(btn) {
+      const codeElement = btn.parentElement.nextElementSibling.querySelector('code');
+      const textToCopy = codeElement.innerText;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    }
+  </script>
+</body>
+</html>
